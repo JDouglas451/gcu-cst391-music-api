@@ -2,13 +2,16 @@
   "name": "musicapi",
   "version": "0.1.0",
   "description": "GCU CS 391 Music API",
-  "main": "index.js",
+  "main": "app.ts",
   "scripts": {
+    "start:watch": "nodemon ./src/app.ts",
+    "start": "npx ts-node ./src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Joshua Douglas",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.5.0",
     "express": "^5.1.0"
   },
   "devDependencies": {
