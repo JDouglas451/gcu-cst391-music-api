@@ -1,8 +1,21 @@
 import { Router } from 'express';
-import { getAlbums } from './albums.controller';
+import * as AlbumsController from './albums.controller';
 
-// route '/albums' to the albums controller
 const router = Router();
-router.route('/albums').get(getAlbums);
+
+// CREATE
+router.route('/albums').post(AlbumsController.createAlbum);
+
+// READ
+router.route('/albums').get(AlbumsController.readAlbums);
+router.route('/albums/:artist').get(AlbumsController.readAlbumsByArtist);
+router.route('/albums/search/artist/:search').get(AlbumsController.readAlbumsByArtistSearch);
+router.route('/albums/search/description/:search').get(AlbumsController.readAlbumsByDescriptionSearch);
+
+// UPDATE
+router.route('/albums').put(AlbumsController.updateAlbum);
+
+// DELETE
+router.route('/albums').delete(AlbumsController.deleteAlbum);
 
 export default router;
