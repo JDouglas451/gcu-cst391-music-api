@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { getArtists } from './artists.controller';
+import { readArtists } from './artists.controller';
 
 // route '/artists' to the albums controller
 const router = Router();
-router.route('/artists').get(getArtists);
+router.route('/artists').get(readArtists);
 
 export default router;

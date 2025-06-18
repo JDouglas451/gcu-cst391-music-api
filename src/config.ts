@@ -8,7 +8,7 @@ export const NODE_ENV: string = process.env.NODE_ENV || 'development';
 export const PORT: string = process.env.PORT || '3000';
 
 // export DB settings
-export const DB_HOST: string = process.env.MYSQL_DB_PORT || '127.0.0.1';
+export const DB_HOST: string = process.env.MYSQL_DB_HOST || '127.0.0.1';
 export const DB_PORT: number = parseInt(process.env.MYSQL_DB_PORT || '3306');
 
 export const DB_NAME: string = process.env.MYSQL_DB_NAME || '';

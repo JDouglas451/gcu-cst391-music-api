@@ -1,5 +1,5 @@
 import { DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD, DB_CONNECTION_LIMIT } from "../config";
-import { createPool, Pool } from "mysql";
+import { createPool, Pool } from 'mysql';
 
 let pool: Pool | null = null;
 
