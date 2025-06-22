@@ -28,14 +28,15 @@ async function readTracks(albums: Album[], res: Response<any, Record<string, any
 
 export const createAlbum: RequestHandler = async (req: Request, res: Response) => {
     try {
+        console.log('req.body', req.body);
+
         // create album
         const okPacket: OkPacket = await AlbumDAO.createAlbum(req.body);
 
-        console.log('req.body', req.body);
         console.log('album', okPacket);
 
         // create album tracks
-        req.body.tracks.foreach(async (track: Track, index: number) => {
+        (req.body.tracks as Track[]).forEach(async (track: Track, index: number) => {
             try {
                 await TrackDAO.createTrack(track, index, okPacket.insertId);
             } catch (err) {
@@ -161,14 +162,15 @@ export const readAlbumsByDescriptionSearch: RequestHandler = async (req: Request
 
 export const updateAlbum: RequestHandler = async (req: Request, res: Response) => {
     try {
+        console.log('req.body', req.body);
+
         // update album
         const okPacket: OkPacket = await AlbumDAO.updateAlbum(req.body);
 
-        console.log('req.body', req.body);
         console.log('album', okPacket);
 
         // update album tracks
-        req.body.tracks.foreach(async (track: Track, index: number) => {
+        (req.body.tracks as Track[]).forEach(async (track: Track, index: number) => {
             try {
                 await TrackDAO.updateTrack(track);
             } catch (err) {
@@ -197,6 +199,8 @@ export const updateAlbum: RequestHandler = async (req: Request, res: Response) =
 
 export const deleteAlbum: RequestHandler = async (req: Request, res: Response) => {
     try {
+        console.log('req.params', req.params);
+
         const albumID = parseInt(req.params.albumID as string);
 
         console.log('albumID', albumID);

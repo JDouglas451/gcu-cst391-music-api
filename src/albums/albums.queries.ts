@@ -71,12 +71,12 @@ export const albumQueries = {
     updateAlbum: `
     UPDATE ${DB_NAME}.albums
     SET title = ?, artist = ?, description = ?, year = ?, image = ?
-    WHERE id = ?
+    WHERE ${DB_NAME}.albums.id = ?
     `,
 
     // DELETE
     deleteAlbum: `
     DELETE FROM ${DB_NAME}.albums
-    WHERE id = ?
+    WHERE ${DB_NAME}.albums.id = ?
     `,
 };

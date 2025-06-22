@@ -16,6 +16,6 @@ router.route('/albums/search/description/:search').get(AlbumsController.readAlbu
 router.route('/albums').put(AlbumsController.updateAlbum);
 
 // DELETE
-router.route('/albums').delete(AlbumsController.deleteAlbum);
+router.route('/albums/:albumID').delete(AlbumsController.deleteAlbum);
 
 export default router;
